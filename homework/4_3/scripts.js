@@ -1,6 +1,9 @@
+const currentYear = new Date().getFullYear();
 let dateOfBirth = prompt("Введіть ваш рік народження!");
 let userCity = prompt("У якому місті ви живете?");
 let userSport = prompt("Ваш улюблений вид спорту??");
+
+let userAge = currentYear - dateOfBirth;
 
 let emptyDateOfBirth = '';
 let emptyUserCity = '';
@@ -41,5 +44,5 @@ switch (userSport) {
 if (emptyDateOfBirth || emptyUserCity || emptyUserSport) {
   alert(`Шкода, що Ви не захотіли вказувати:\n${emptyDateOfBirth}\n${emptyUserCity}\n${emptyUserSport}`);
 } else {
-  alert(`Твій рік народження ${dateOfBirth}. ${userCity} ${userSport}`);
+  alert(`Твій вік ${userAge}. ${userCity} ${userSport}`);
 }
