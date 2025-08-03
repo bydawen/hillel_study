@@ -24,6 +24,11 @@ let negativeCount = 0;
 let positiveOddCount = 0;
 let positiveEvenCount = 0;
 
+let minValue = arr[0];
+let maxValue = minValue;
+let minIndex = 0;
+let maxIndex = 0;
+
 for (let i = 0; i < arr.length; i++) {
   if (arr[i] > 0) {
     positiveSum += arr[i];
@@ -44,12 +49,34 @@ for (let i = 0; i < arr.length; i++) {
     positiveEvenCount += 1;
     positiveEvenSum += arr[i];
   }
+
+  if (arr[i] < minValue) {
+    minValue = arr[i];
+    minIndex = i;
+  }
+
+  if (maxValue < arr[i]) {
+    maxValue = arr[i];
+    maxIndex = i;
+  }
 }
 
+console.log(arr);
 document.write(`Сумма додатніх елементів =  ${positiveSum}, а їх кількість ${positiveCount} <br>`);
 document.write(`Кількість від’ємних елементів = ${negativeCount} <br>`);
+document.write(`Мінімальний (найменший) елемент масива = ${minValue} і його індекс == ${minIndex} <br>`);
+document.write(`Максимальний (найбільший) елемент масива = ${maxValue} і його індекс == ${maxIndex} <br>`);
 document.write(`Кількість непарних додатних елементів = ${positiveOddCount} <br>`);
 document.write(`Кількість парних додатних елементів = ${positiveEvenCount} <br>`);
 document.write(`Cума парних додатних елементів = ${positiveEvenSum} <br>`);
 document.write(`Cума непарних додатних елементів = ${positiveOddSum} <br>`);
 document.write(`Добуток всіх додатних елементів = ${positiveMulti} <br>`);
+
+for (let j = 0; j < arr.length; j++) {
+  if (arr[j] !== maxValue) {
+    arr[j] = 0;
+  }
+}
+
+console.log(arr);
+document.write(`<br> Заміна на 0 усіх елементів масива окрім найбільшого ${maxValue} <br> ${arr}`);
