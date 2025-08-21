@@ -111,13 +111,17 @@ let uniqueItems = () => {
 
 // Використовуйте reduce, щоб знайти користувача з найбільшими витратами.
 // "Bob витратив більше за всіх: $1700"
-let userMaxSpent = usersOrdersPrice.reduce((accum, current) => {
-  if (current.userItemsPrice > accum.userItemsPrice ) {
-    return current;
-  } else {
-    return accum;
-  }
-}, { username: "", userItemsPrice: 0 });
+let userWithMaxSpent = () => {
+  let userNameMax = "";
+  let userTotalSpent = 0;
 
-// console.log(`${userMaxSpent.userName} витратив більше за всіх: $${userMaxSpent.userItemsPrice}`);
+  for (let user in usersOrdersPriceReducer) {
+    if (usersOrdersPriceReducer[user] > userTotalSpent) {
+      userTotalSpent = usersOrdersPriceReducer[user];
+      userNameMax = user;
+    }
+  }
+  console.log(`${userNameMax} витратив більше за всіх: $${userTotalSpent}`);
+}
+userWithMaxSpent();
 // END
