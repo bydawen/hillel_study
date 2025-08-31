@@ -1,0 +1,32 @@
+:root {
+    --first-cell-bg: deepskyblue;
+    --cell-bg: wheat;
+    --first-cell-text-color: white;
+    --cell-text-color: darkcyan;
+}
+
+.pifagor-row {
+    display: flex;
+}
+
+.pifagor-row:first-child .pifagor-cell,
+.pifagor-cell:first-child {
+    color: var(--first-cell-text-color);
+    background: var(--first-cell-bg);
+}
+
+.pifagor-cell {
+    box-sizing: border-box;
+    color: var(--cell-text-color);
+    background: var(--cell-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+}
+
+.pifagor-cell.is-crossed {
+    font-size: 18px;
+    font-weight: 700;
+}
