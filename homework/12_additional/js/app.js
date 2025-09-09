@@ -57,10 +57,14 @@ const showProductsByCategory = category => {
 
       // self-practice
       const category = categories[categoryId];
-      if (!category) return;
+      if (!category) {
+        return;
+      }
 
-      const product = category.products.find(item => String(item.id) === productId);
-      if (!product) return;
+      const product = category.products.find(item => item.id == productId);
+      if (!product) {
+        return;
+      }
 
       const infoContainer = document.querySelector('.info');
       if (infoContainer) {
