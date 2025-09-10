@@ -79,9 +79,11 @@ const showProductsByCategory = category => {
         infoContainer.appendChild(buyBtn);
 
         infoContainer.addEventListener('click', event => {
-          const orderDetails = document.querySelector('.order-details');
+          if (event.target && event.target.tagName === 'BUTTON') {
+            const orderDetails = document.querySelector('.order-details');
 
-          orderDetails.innerHTML = `Ви купили <b>${product.name}</b>, дякуємо!`;
+            orderDetails.innerHTML = `Ви купили <b>${product.name}</b>, дякуємо!`;
+          }
         });
         // END self-practice
       }
