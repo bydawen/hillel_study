@@ -63,7 +63,8 @@ generateSliderDots = () => {
     }
 
     sliderDotItem.addEventListener('click', () => {
-      sliderImg.src = images[index];
+      currentSlide = index;
+      sliderImg.src = images[currentSlide];
 
       setSliderActiveDot();
     });
@@ -75,7 +76,13 @@ generateSliderDots = () => {
 generateSliderDots();
 
 setSliderActiveDot = () => {
-  document.querySelectorAll('.slider-dot').forEach((item, index) => {
-    item.classList.toggle('is-active', index === currentSlide);
+  document.querySelectorAll('.slider-dot').forEach((dotItem, index) => {
+    console.log(currentSlide, 'currentSlide');
+
+    if (index === currentSlide) {
+      dotItem.classList.add('is-active');
+    } else {
+      dotItem.classList.remove('is-active');
+    }
   });
 };
