@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local storage practice</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <button type="button" class="my-orders show-btn">
+    My orders
+  </button>
+  <button type="button" class="my-categories show-btn" style="display: none">
+    Back to categories
+  </button>
+
+  <div class="wrapper">
+    <div class="wrapper-row">
+      <div class="wrapper-item categories"></div>
+      <div class="wrapper-item products"></div>
+      <div class="wrapper-item info"></div>
+    </div>
+
+    <div class="order-row">
+      <form class="order-delivery" id="orderDelivery"></form>
+      <div class="order-details"></div>
+    </div>
+  </div>
+
+  <div class="orders-history"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
