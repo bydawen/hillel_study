@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+
+  <title>Homework 19</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="text-center mb-3">
+          Homework 19
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <div class="d-grid">
+          <button type="button" id="btnViewPeople" class="btn btn-success mb-2">
+            Show SW characters
+          </button>
+        </div>
+        <ul class="list-group is-people"></ul>
+        <div class="d-grid d-none is-more-people">
+          <button type="button" id="btnMorePeople" class="btn btn btn-outline-success mt-2">
+            More characters
+          </button>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="d-grid">
+          <button type="button" id="btnViewPlanets" class="btn btn-warning mb-2">
+            Show SW planets
+          </button>
+        </div>
+        <ul class="list-group is-planets"></ul>
+        <div class="d-grid d-none is-more-planets">
+          <button type="button" id="btnMorePlanets" class="btn btn btn-outline-success mt-2">
+            More planets
+          </button>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="d-grid">
+          <button type="button" id="btnViewStarships" class="btn btn-primary mb-2">
+            Show SW starships
+          </button>
+        </div>
+        <ul class="list-group is-starships"></ul>
+        <div class="d-grid d-none is-more-starships">
+          <button type="button" id="btnMoreStarships" class="btn btn btn-outline-success mt-2">
+            More starships
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" tabindex="-1" id="peopleModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="modal-list"></ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="./scripts.js"></script>
+</body>
+</html>
