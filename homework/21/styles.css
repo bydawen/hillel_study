@@ -1,0 +1,9 @@
+:root {
+    --text: #333;
+    --tomato: tomato;
+}
+
+.custom-tooltip {
+    --bs-tooltip-bg: var(--tomato);
+    --bs-tooltip-color: var(--text);
+}
