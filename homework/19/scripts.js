@@ -31,15 +31,15 @@ function loadData(api, list, moreBtn) {
 
       viewItems(result.results, list);
 
-      // TODO: ask for this
       api = result.next;
 
       if (result.next) {
+        moreBtn.dataset.next = result.next;
         moreBtn.parentElement.classList.remove('d-none');
       } else {
         moreBtn.parentElement.classList.add('d-none');
       }
-    })
+    });
 }
 
 function viewItems(items, listType) {
@@ -48,25 +48,45 @@ function viewItems(items, listType) {
 
     listItem.classList.add('list-group-item', 'list-group-item-action');
     listItem.textContent = item.name;
+    listItem.setAttribute('data-url', item.url);
 
     listType.appendChild(listItem);
   })
 }
-// TODO: ask for this
+
 listPeople.addEventListener('click', (e) => {
   if (e.target.tagName === "A") {
-    fetch(swapiPeople)
-      .then(response => response.json())
-      .then(result => {
-        result.results.forEach(person => {
-          document.querySelector('#peopleModal .modal-title').textContent = person.name;
-        });
-      })
+    const personUrl = e.target.getAttribute('data-url');
 
-    const modal = new bootstrap.Modal(document.getElementById('peopleModal'));
-    modal.show();
+    fetch(personUrl)
+      .then(response => response.json())
+      .then(person => {
+        const modalTitle = document.querySelector('#peopleModal .modal-title');
+        const modalList = document.querySelector('#peopleModal .modal-list');
+
+        modalTitle.textContent = person.name;
+        modalList.innerHTML = `
+          <li><b>Height:</b> ${person.height} cm</li>
+          <li><b>Mass:</b> ${person.mass} kg</li>
+          <li><b>Birth Year:</b> ${person.birth_year}</li>
+          <li><b>Gender:</b> ${person.gender}</li>
+        `;
+
+        fetch(person.homeworld)
+          .then(res => res.json())
+          .then(planet => {
+            const planetItem = document.createElement('li');
+
+            planetItem.innerHTML = `<b>Homeworld:</b> ${planet.name}`;
+            modalList.appendChild(planetItem);
+          });
+
+        const modal = new bootstrap.Modal(document.getElementById('peopleModal'));
+
+        modal.show();
+      });
   }
-})
+});
 
 btnViewPeople.addEventListener('click', (e) => {
   loadData(swapiPeople, listPeople, btnMorePeople);
@@ -84,13 +104,22 @@ btnViewStarships.addEventListener('click', (e) => {
 });
 
 btnMorePeople.addEventListener('click', (e) => {
-  loadData(swapiPeople, listPeople, btnMorePeople);
+  const nextUrl = e.target.dataset.next;
+  if (nextUrl) {
+    loadData(nextUrl, listPeople, btnMorePeople);
+  }
 });
 
 btnMorePlanets.addEventListener('click', (e) => {
-  loadData(swapiPlanets, listPlanets, btnMorePlanets);
+  const nextUrl = e.target.dataset.next;
+  if (nextUrl) {
+    loadData(nextUrl, listPlanets, btnMorePlanets);
+  }
 });
 
 btnMoreStarships.addEventListener('click', (e) => {
-  loadData(swapiStarships, listStarships, btnMoreStarships);
+  const nextUrl = e.target.dataset.next;
+  if (nextUrl) {
+    loadData(nextUrl, listStarships, btnMoreStarships);
+  }
 });
