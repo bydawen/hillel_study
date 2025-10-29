@@ -1,0 +1,30 @@
+body {
+    background-color: #f8f9fa;
+}
+
+h1 {
+    color: #212529;
+}
+
+#todoList li {
+    transition: background-color 0.2s ease;
+}
+
+#todoList li:hover {
+    background-color: #e9ecef;
+}
+
+.task-info .btn {
+    border-radius: 50%;
+}
+
+.is-completed {
+    color: #fff;
+    background-color: #088008;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.is-completed .btn {
+    display: none;
+}
