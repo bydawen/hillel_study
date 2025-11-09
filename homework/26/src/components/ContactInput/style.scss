@@ -1,0 +1,28 @@
+$invalid-color: #ea4b71;
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.add-contact-form .form-group.is-invalid {
+    input {
+        border-color: $invalid-color;
+        box-shadow: 0 0 0 3px rgba($invalid-color, 0.1);
+    }
+}
+
+.is-error {
+    color: $invalid-color;
+    font-size: 13px;
+    text-align: left;
+    font-weight: 500;
+    margin-top: 6px;
+    animation: fadeIn 0.2s ease-in;
+}
